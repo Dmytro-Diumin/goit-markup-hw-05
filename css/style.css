@@ -356,11 +356,12 @@ body {
   justify-content: center;
   display: flex;
   fill: #afb1b8;
-  transition: fill 250ms, background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icons {
   width: 20px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-icons:hover,
@@ -431,12 +432,13 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: #afb1b8;
-  transition: fill 250ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-icons {
   width: 106px;
   height: 60px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-icon:hover,
@@ -566,7 +568,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 6px 22px;
-  transition: color 250ms,background-color 250ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .work-title {
@@ -588,21 +590,22 @@ body {
 
 .work-item {
   margin: 0 auto;
-  margin-bottom: 30px;
-}
-
-.work-item:hover .work-text {
-  transform: translateY(0);
+  margin-bottom: 30px; 
 }
 
 .portfolio {
   display: block;
   text-decoration: none;
-
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio:hover,
-.portfolio:focus {
+.portfolio:hover .work-text,
+.portfolio:focus .work-text {
+  transform: translateY(0);
+}
+
+.work-shadow:hover,
+.work-shadow:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
@@ -623,7 +626,7 @@ body {
   background: rgba(33, 150, 243, 0.9);
   color: var(--secondary-white-color);
   transform: translateY(101%);
-  transition: transform 250ms;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project {
@@ -667,12 +670,15 @@ body {
   position: absolute;
   right: 8px;
   top: 8px;
+  display: flex;
   width: 30px;
   height: 30px;
+  justify-content: center;
+  align-items: center;
   background: var(--secondary-white-color);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 6px;
+  padding: 0;
 }
 
 .close-black {
@@ -682,6 +688,7 @@ display: block;
 .is-hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .no-scroll {
